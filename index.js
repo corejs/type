@@ -1,11 +1,13 @@
-module.exports = type;
-
-var type = function (obj) {
+var type = module.exports = function (obj) {
   return new Type(obj);
 };
 
 var Type = function (obj) {
   this.obj = obj;
+};
+
+Type.prototype.isUndefined = function () {
+  return typeof this.obj === 'undefined';
 };
 
 Type.prototype.isString = function () {
