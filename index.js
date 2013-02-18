@@ -22,7 +22,7 @@ Type.prototype.handle = function (handlers) {
 
   props.each(function (is, key) {
     if (is && h.has(key)) {
-      h[key]();
+      h.get(key)();
     }
   });
 };
