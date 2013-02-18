@@ -3,29 +3,12 @@ var type = module.exports = function (obj) {
 };
 
 var Type = function (obj) {
-  this.obj = obj;
+  this.isUndefined = return typeof obj === 'undefined';
+  this.isNull = isNull(obj);
+  this.isString = return obj instanceof String;
+  this.isNumber = return obj instanceof Number;
+  this.isBoolean = return obj instanceof Boolean;
+  this.isArray = return obj instanceof Array;
+  this.isFunction = return typeof obj === 'function';
 };
 
-Type.prototype.isUndefined = function () {
-  return typeof this.obj === 'undefined';
-};
-
-Type.prototype.isString = function () {
-  return this.obj instanceof String;
-};
-
-Type.prototype.isNumber = function () {
-  return this.obj instanceof Number;
-};
-
-Type.prototype.isBoolean = function () {
-  return this.obj instanceof Boolean;
-};
-
-Type.prototype.isArray = function () {
-  return this.obj instanceof Array;
-};
-
-Type.prototype.isFunction = function () {
-  return typeof this.obj === 'function';
-};
