@@ -8,11 +8,11 @@ var Type = function (obj) {
   this.is = {
     undef: typeof obj === 'undefined',
     nil: obj === null,
-    str: typeof obj === 'string' || obj instanceof String;
-    num: typeof obj === 'number' || obj instanceof Number;
-    bool: typeof obj === 'boolean' || obj instanceof Boolean;
-    arr: obj instanceof Array;
-    fn: typeof obj === 'function';
+    str: typeof obj === 'string' || obj instanceof String,
+    num: typeof obj === 'number' || obj instanceof Number,
+    bool: typeof obj === 'boolean' || obj instanceof Boolean,
+    arr: obj instanceof Array,
+    fn: typeof obj === 'function'
   };
 };
 
