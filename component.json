@@ -2,8 +2,10 @@
   "name": "type",
   "repo": "corejs/type",
   "description": "type detection",
-  "version": "0.3.4",
-  "dependencies": {},
+  "version": "0.4.0",
+  "dependencies": {
+    "corejs/dictionary": "*"
+  },
   "scripts": ["index.js"],
   "keywords": ["type"],
   "license": "MIT"

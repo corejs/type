@@ -1,13 +1,28 @@
-var type = module.exports = function (obj) {
+var dictionary = require('dictionary');
+
+module.exports = function (obj) {
   return new Type(obj);
 };
 
 var Type = function (obj) {
-  this.isUndefined = typeof obj === 'undefined';
-  this.isNull = obj === null;
-  this.isString = typeof obj === 'string' || obj instanceof String;
-  this.isNumber = typeof obj === 'number' || obj instanceof Number;
-  this.isBoolean = typeof obj === 'boolean' || obj instanceof Boolean;
-  this.isArray = obj instanceof Array;
-  this.isFunction = typeof obj === 'function';
+  this.is = {
+    undef: typeof obj === 'undefined',
+    nil: obj === null,
+    str: typeof obj === 'string' || obj instanceof String;
+    num: typeof obj === 'number' || obj instanceof Number;
+    bool: typeof obj === 'boolean' || obj instanceof Boolean;
+    arr: obj instanceof Array;
+    fn: typeof obj === 'function';
+  };
+};
+
+Type.prototype.handle = function (handlers) {
+  var h = dictionary(handlers),
+      props = dictionary(this.is);
+
+  props.each(function (is, key) {
+    if (is && h.has(key)) {
+      h[key]();
+    }
+  });
 };
