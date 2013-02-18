@@ -4,7 +4,7 @@ var type = module.exports = function (obj) {
 
 var Type = function (obj) {
   this.isUndefined = typeof obj === 'undefined';
-  this.isNull = isNull(obj);
+  this.isNull = obj === null;
   this.isString = obj instanceof String;
   this.isNumber = obj instanceof Number;
   this.isBoolean = obj instanceof Boolean;
