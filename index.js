@@ -3,7 +3,7 @@ var type = module.exports = function (obj) {
 };
 
 var Type = function (obj) {
-  this.isUndefined = return typeof obj === 'undefined';
+  this.isUndefined = typeof obj === 'undefined';
   this.isNull = isNull(obj);
   this.isString = return obj instanceof String;
   this.isNumber = return obj instanceof Number;
