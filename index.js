@@ -18,11 +18,17 @@ var Type = function (obj) {
 
 Type.prototype.handle = function (handlers) {
   var h = dictionary(handlers),
-      props = dictionary(this.is);
+      props = dictionary(this.is),
+      handled = false;
 
   props.each(function (is, key) {
     if (is && h.has(key)) {
+      handled = true;
       h.get(key)();
     }
   });
+
+  if (!handled && h.has('default')) {
+    h.get('default')();
+  }
 };
